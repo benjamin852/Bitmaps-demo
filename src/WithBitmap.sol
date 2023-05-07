@@ -1,19 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-import "@openzeppelin/contracts/utils/structs/BitMaps.sol";
-
-contract WithBitmapOZ {
-    using BitMaps for BitMaps.BitMap;
-
-    BitMaps.BitMap private claimedBitmap;
+contract WithBitmap {
+    uint256 public claimedBitmap;
 
     function claimTokens(address[] calldata recipients) external {
         for (uint256 i = 0; i < recipients.length; i++) {
             address recipient = recipients[i];
             uint256 mask = uint256(1) << (uint256(uint160(recipient)) % 256);
-            if (!claimedBitmap.get(mask)) {
-                claimedBitmap.set(mask);
+            if ((claimedBitmap & mask) == 0) {
+                claimedBitmap |= mask;
                 // Transfer tokens to recipient
             }
         }
