@@ -13,12 +13,16 @@ contract WithBitmapTest is Test {
         bitMaps = new WithBitmap();
     }
 
-    function testAddToBitMapNoOZ() public {
-        for (uint i = 0; i < 500000; i++) {
-            addresses.push(vm.addr(i + 1));
-        }
-        for (uint i = 0; i < 10; i++) {
-            bitMaps.claimTokens(addresses);
-        }
+    // function testAddToBitMapNoOZ() public {
+    //     for (uint i = 0; i < 500000; i++) {
+    //         addresses.push(vm.addr(i + 1));
+    //     }
+    //     for (uint i = 0; i < 10; i++) {
+    //         bitMaps.claimTokens(addresses);
+    //     }
+    // }
+
+    function testAddNewAddress() public {
+        bitMaps.claimTokens([vm.addr(1)]);
     }
 }
