@@ -4,9 +4,10 @@ This repo is a quick follow up to the blog I wrote about bitmaps and how they ca
 
 ## Setup
 
-To get this up and running we first need to make sure open zeppelin contracts are installed. To do this run 
+To get our tests up and running we first need to make sure our dependencies are installed. Specifically we will install Open Zeppelin and forge dependencies. To do so run:
 ```
 forge install OpenZeppelin/openzeppelin-contracts
+forge install foundry-rs/forge-std
 ```
 
 Next make sure our remappings file is as follows
