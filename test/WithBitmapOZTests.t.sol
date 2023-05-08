@@ -22,4 +22,13 @@ contract WithBitmapOZTests is Test {
             bitMaps.claimTokens(addresses);
         }
     }
+
+    function testAddressesAdded() public {
+        addresses.push(vm.addr(1));
+        bool hasClaimedBefore = bitMaps.hasClaimed(vm.addr(1));
+        assertFalse(hasClaimedBefore);
+        bitMaps.claimTokens(addresses);
+        bool hasClaimedAfter = bitMaps.hasClaimed(vm.addr(1));
+        assertTrue(hasClaimedAfter);
+    }
 }

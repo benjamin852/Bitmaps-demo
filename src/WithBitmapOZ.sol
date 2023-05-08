@@ -18,4 +18,15 @@ contract WithBitmapOZ {
             }
         }
     }
+
+    function hasClaimed(address _claimer) external returns (bool) {
+        uint256 mask = uint256(1) << (uint256(uint160(_claimer)) % 256);
+        if (!claimedBitmap.get(mask)) {
+            //has not yet claimed
+            return false;
+        } else {
+            //has already claimed
+            return true;
+        }
+    }
 }
