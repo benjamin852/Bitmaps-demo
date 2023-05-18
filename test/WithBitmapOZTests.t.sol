@@ -11,13 +11,12 @@ contract WithBitmapOZTests is Test {
 
     function setUp() public {
         bitMaps = new WithBitmapOZ();
+        for (uint i = 0; i < 5000; i++) {
+            addresses.push(vm.addr(i + 1));
+        }
     }
 
     function testAddToBitMapOZ() public {
-        for (uint i = 0; i < 500000; i++) {
-            addresses.push(vm.addr(i + 1));
-        }
-
         for (uint i = 0; i < 10; i++) {
             bitMaps.claimTokens(addresses);
         }

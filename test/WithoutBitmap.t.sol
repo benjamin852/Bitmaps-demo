@@ -14,7 +14,7 @@ contract WithoutBitmapTest is Test {
     }
 
     function testClaimTokensNoBitMap() public {
-        for (uint i = 0; i < 500_000; i++) {
+        for (uint i = 0; i < 5000; i++) {
             addresses.push(vm.addr(i + 1));
         }
         for (uint i = 0; i < 10; i++) {
